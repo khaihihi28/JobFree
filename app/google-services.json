@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "495308556294",
+    "firebase_url": "https://jobfree-e8a53-default-rtdb.firebaseio.com",
+    "project_id": "jobfree-e8a53",
+    "storage_bucket": "jobfree-e8a53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495308556294:android:c13d76f2cd5a49916c5b87",
+        "android_client_info": {
+          "package_name": "com.poly.duantotnghiep_jf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495308556294-311l7ha09g8n81qf15jgle0uq0c388gi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.poly.duantotnghiep_jf",
+            "certificate_hash": "ce5f3b94106806ad3ba1401d1938c99e6b9fc1e2"
+          }
+        },
+        {
+          "client_id": "495308556294-hnh3c1m8qv922n2161kc9gqtot879p95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfirLDhAPUq0S77joLLeM3hJ2x7sWTpKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495308556294-hnh3c1m8qv922n2161kc9gqtot879p95.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
