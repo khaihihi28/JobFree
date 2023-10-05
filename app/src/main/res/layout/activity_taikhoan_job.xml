@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.TaikhoanJob">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textColor="@color/white"
+            android:background="#33669A"
+            android:padding="15dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="Tài Khoản JobFree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"/>
+        <TextView
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:text="Đăng nhập bằng tài khoản Job free"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>
+        <LinearLayout
+            android:gravity="center"
+            android:background="@drawable/backitem"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <ImageView
+                android:src="@drawable/logofb"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="Facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:background="@drawable/backitem"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <ImageView
+                android:src="@drawable/gg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="Google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="Chưa có tài khoản job free?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="#F05123"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:background="@drawable/backitem"
+            android:layout_margin="10dp"
+            android:text="Đăng kí"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>
+    </LinearLayout>
+
+</ScrollView>

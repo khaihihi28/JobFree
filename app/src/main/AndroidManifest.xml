@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAnTotNghiep_JF">
         <activity
+            android:name=".Activity.TaikhoanJob"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DangNhap"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.QuenMatKhau"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

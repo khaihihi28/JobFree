@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activity.QuenMatKhau">
+
+    <TextView
+        android:textColor="@color/white"
+        android:background="#33669A"
+        android:padding="15dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="Quên Mật Khẩu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+              <TextView
+                  android:textStyle="bold"
+                  android:text="Nhập email đã đăng ký của bạn, Chúng tôi sẽ
+gửi email để giúp bạn tạo mật khẩu mới."
+                  android:textSize="20dp"
+                  android:padding="10dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+              <com.google.android.material.textfield.TextInputLayout
+                  android:layout_width="match_parent"
+                  android:padding="10dp"
+
+                  android:layout_height="wrap_content">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/edt_email"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:textStyle="bold"
+                      android:textSize="20dp"
+                      android:hint="Email truy cập" />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+              <Button
+                  android:id="@+id/btn_Gui"
+                  android:layout_margin="20dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="12dp"
+                  android:backgroundTint="#F05123"
+                  android:text="Gửi"
+                  android:textColor="@color/white"
+                  android:textSize="20dp" />
+
+
+          </LinearLayout>
+
+
+</LinearLayout>

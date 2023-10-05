@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.DangNhap">
+
+    <TextView
+        android:textColor="@color/white"
+        android:background="#33669A"
+        android:padding="15dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="Đăng Nhập"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/logo"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:hint="Email (*)" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_mk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:hint="Mật Khẩu (*)" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tv_quenmk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quên Mật Khẩu ?"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#33669A"
+            android:layout_marginTop="20dp"
+            />
+   <Button
+       android:id="@+id/btndn"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Đăng Nhập"
+       android:backgroundTint="#F05123"
+       android:layout_marginTop="20dp"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:padding="10dp"
+       android:textStyle="bold"
+       android:textSize="20dp"
+       android:textColor="@color/white" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
