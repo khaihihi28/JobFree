@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ChinhSachBaoMat">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
+
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="20dp"
+                android:text="Quy Định Bảo Mật"
+                android:textColor="#F05123"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Ứng dụng hỗ trợ tuyển dụng JOBFree thông báo đến bạn và cần sự đồng ý và cần sự đồng ý và cho phép của bạn để xứ lý, thu nhập và lưu trữ dữ liệu của bạn nhằm mục đích cung cấp dịch vụ cho bạn trong suốt quá trình sử dụng website và ứng dụng di động JOBFree như tại quy định bảo mật này. JOBFree cam kết tuân thủ và giữ thông tin của bạn riêng tư và an toàn theo đúng các quy định của pháp luật. Bằng cách lựa chọn xác nhận và đồng ý với Quy định Bảo Mật khi đăng ký tài khoản, bạn cho phép chúng tôi thu thập, sử dụng, tiết lộ và/hoặc xử lý dữ liệu cá nhân của bạn như quy định trong Chính sách này. Việc cho phép này có hiệu lực và bắt đầu từ thời điểm bạn đồng ý cho đến khi bạn quyết định rút lại sự đồng ý hoặc tự động kết thúc trong các trường hợp theo quy định của pháp luật. Nếu bạn không đồng ý cho phép xử lý dữ liệu của bạn theo quy định này, vui lòng không sử dụng các dịch vụ của chúng tôi hoặc thông báo ngay cho chúng tôi về việc không đồng ý của bạn trong trường hợp bạn đã đồng ý trước đó
+
+JOBFree của chúng tôi có thể chức các liên kết dẫn tới các website khác mà chúng tôi không kiểm soát. Chúng tôi không chịu trách nhiệm về các chính sách bảo mật hoặc việc thực hiện chúng của các website khác mà bạn kết nối tới từ JOBFree. Chúng tôi khuyến khích bạn xem xét các chính sách bảo mật thông tin của họ thu thập, sử dụng và chia sẻ thộng tin của bạn."
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:ignore="HardcodedText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/nen_main"
+        android:orientation="horizontal"
+
+        android:layout_gravity="top|center_horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="22dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            app:srcCompat="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="276dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Chính sách bảo mật"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+</FrameLayout>
