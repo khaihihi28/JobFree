@@ -1,30 +1,38 @@
 package com.poly.duantotnghiep_jf.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.poly.duantotnghiep_jf.R;
 
 public class DangNhap extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+    TextInputEditText edtEmail, edtPass;
+    Button btnLogin;
     ImageView btnBack;
-    EditText edtEmail_Login,edt_password_login ;
-    Button btn_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
 
-        btnBack = findViewById(R.id.btnBack);
+        mAuth = FirebaseAuth.getInstance();
+        anhXa();
 
-        edtEmail_Login = findViewById(R.id.edtEmail_Login);
-        edt_password_login = findViewById(R.id.edt_password_login);
-        btn_login = findViewById(R.id.btn_login);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,12 +42,34 @@ public class DangNhap extends AppCompatActivity {
             }
         });
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email =  edtEmail_Login.getText().toString();
-                String pass = edt_password_login.getText().toString();
+                dangNhap();
             }
         });
+    }
+
+    private void dangNhap(){
+        String email = edtEmail.getText().toString();
+        String password = edtPass.getText().toString();
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(DangNhap.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(DangNhap.this, "Fail!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void anhXa(){
+        btnBack = findViewById(R.id.btnBack);
+        edtEmail = findViewById(R.id.edtEmail_Login);
+        edtPass = findViewById(R.id.edt_password_login);
+        btnLogin = findViewById(R.id.btn_login);
     }
 }
