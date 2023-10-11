@@ -70,7 +70,6 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="20dp"
                     android:gravity="center_vertical"
-
                     app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -170,7 +169,6 @@
                         android:id="@+id/edt_phone_Dky"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-
                         android:background="@drawable/bovien_textinput"
                         android:hint="Nhập số điện thoại"
                         android:padding="10dp" />
@@ -264,7 +262,7 @@
                         android:id="@+id/edt_Pass_Dky"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-
+                        android:inputType="textPassword"
                         android:background="@drawable/bovien_textinput"
                         android:hint="Nhập mật khẩu"
                         android:padding="10dp" />
