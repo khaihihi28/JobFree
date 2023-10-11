@@ -9,6 +9,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAnTotNghiep_JF">
         <activity
+            android:name=".Activity.ManHinhTest"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.mantest"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ChinhSachBaoMat"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DangKy"
+            android:exported="false" />
+        <activity
             android:name=".Activity.DangNhap"
             android:exported="false" />
         <activity
