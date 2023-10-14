@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/trangchu"
+        android:title="Trang chủ"
+        android:icon="@drawable/home_icon_xam"/>
+    <item android:id="@+id/yeuthich"
+        android:title="Yêu thích"
+        android:icon="@drawable/yeuthich_icon_xam"/>
+    <item android:id="@+id/khampha"
+        android:title="Khám phá"
+        android:icon="@drawable/khampha_icon_xam"/>
+    <item android:id="@+id/menu"
+        android:title="Menu"
+        android:icon="@drawable/menu_icon_xam"/>
+</menu>

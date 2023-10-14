@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:backgroundTint="#33474545">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:backgroundTint="#4D000AFF"
+                    app:cardCornerRadius="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/logo1" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="25dp"
+                            android:layout_marginTop="5dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:text="FPT Sofwed"/>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="9"
+                        android:layout_margin="10dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Data Engineer - Salary Up to $3000"
+                            android:textColor="#FF0000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FF5C00"
+                            android:textSize="18dp"
+                            android:text="Lên đến $3,000"/>
+
+                        <TextView
+                            android:id="@+id/txt3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:text="Địa chỉ tổng quát" />
+
+
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/yeuthich_icon_xam"
+                        android:layout_gravity="bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:backgroundTint="#33474545">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:backgroundTint="#4D000AFF"-->
+<!--                    app:cardCornerRadius="20dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="50dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:src="@drawable/logo1"/>-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="25dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:text="Logo và tên công ty"/>-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="9"-->
+<!--                        android:layout_margin="10dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Tên Công việc"-->
+<!--                            android:textColor="#FF0000"-->
+<!--                            android:textSize="20dp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Lương"-->
+<!--                            android:textColor="#FF5C00"-->
+<!--                            android:textSize="18dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="15dp"-->
+<!--                            android:text="Địa chỉ tổng quát" />-->
+
+
+<!--                    </LinearLayout>-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/yeuthich_icon_xam"-->
+<!--                        android:layout_gravity="bottom"/>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+<!--    </LinearLayout>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:backgroundTint="#33474545">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:backgroundTint="#4D000AFF"-->
+<!--                    app:cardCornerRadius="20dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="50dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:src="@drawable/logo1" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="25dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:text="Logo và tên công ty"/>-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="9"-->
+<!--                        android:layout_margin="10dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textSize="20dp"-->
+<!--                            android:textColor="#FF0000"-->
+<!--                            android:text="Tên Công việc"/>-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textColor="#FF5C00"-->
+<!--                            android:textSize="18dp"-->
+<!--                            android:text="Lương"/>-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="15dp"-->
+<!--                            android:text="Địa chỉ tổng quát" />-->
+
+
+<!--                    </LinearLayout>-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/yeuthich_icon_xam"-->
+<!--                        android:layout_gravity="bottom"/>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+<!--    </LinearLayout>-->
+</LinearLayout>
+
