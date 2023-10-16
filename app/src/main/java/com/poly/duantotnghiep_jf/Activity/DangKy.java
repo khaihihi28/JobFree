@@ -3,7 +3,6 @@ package com.poly.duantotnghiep_jf.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -57,12 +56,9 @@ public class DangKy extends AppCompatActivity {
                         if(task.isSuccessful()){
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             String uid = user.getUid();
-                            Account acount = new Account(email,name,ho,phone, true);
+                            Account acount = new Account(email,name,ho,phone);
                             mDatabase.child(uid).setValue(acount);
                             Toast.makeText(DangKy.this, "Đăng ký thành công!!!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(DangKy.this, TaikhoanJob.class);
-                            startActivity(intent);
-                            finish();
                         }
                         else {
                             Toast.makeText(DangKy.this, "Fail!!!", Toast.LENGTH_SHORT).show();

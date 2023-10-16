@@ -43,7 +43,7 @@ import java.util.Arrays;
 
 public class TaikhoanJob extends AppCompatActivity {
 
-    TextView btnDangKy,btnLoginBasic, btnwitGG, btnwithFace;
+    TextView btnLoginBasic, btnwitGG, btnwithFace;
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -58,10 +58,9 @@ public class TaikhoanJob extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taikhoan_job);
 
-        mAuth = FirebaseAuth.getInstance();
-
-        anhXa();
-
+        btnLoginBasic = findViewById(R.id.btn_login_basic);
+        btnwitGG = findViewById(R.id.btn_login_withGG);
+        btnwithFace = findViewById(R.id.btn_login_withFB);
         btnLoginBasic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,31 +68,6 @@ public class TaikhoanJob extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        btnDangKy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TaikhoanJob.this, DangKy.class);
-                startActivity(intent);
-            }
-        });
-    }
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser != null){
-//            Intent intent = new Intent(TaikhoanJob.this, MainActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//    }
-    private void anhXa(){
-        btnDangKy = findViewById(R.id.btn_dangky);
-        btnLoginBasic = findViewById(R.id.btn_login_basic);
-        btnwitGG = findViewById(R.id.btn_login_withGG);
-        btnwithFace = findViewById(R.id.btn_login_withFB);
     }
 
 }
