@@ -141,7 +141,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/btn_dangky"></LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/btn_dangky"
+                tools:layout_editor_absoluteX="-16dp"></LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
