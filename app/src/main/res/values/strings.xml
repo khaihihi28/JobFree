@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">DuAnTotNghiep_JF</string>
-    <string name="nav_drawer_open">OpenNavigationDrawer</string>
-    <string name="nav_drawer_close">CloseNavigationDrawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
