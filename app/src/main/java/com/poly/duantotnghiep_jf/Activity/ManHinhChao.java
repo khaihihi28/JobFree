@@ -74,4 +74,6 @@ public class ManHinhChao extends AppCompatActivity {
             }
         }, SPLASH_DELAY);
     }
+    ////////////////////////////thinhnhph23860
+
 }

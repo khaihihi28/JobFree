@@ -12,5 +12,8 @@ public class QuenMatKhau extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quen_mat_khau);
+
+
+        //////////thinhnhph23860
     }
 }
