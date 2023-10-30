@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.poly.duantotnghiep_jf.Activity.TaikhoanJob;
 
 public class MainActivity extends AppCompatActivity {
+    //////////////////////////////
     Button btndangxuat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
