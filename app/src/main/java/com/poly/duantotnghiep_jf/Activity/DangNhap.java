@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,12 +26,16 @@ import com.google.firebase.database.ValueEventListener;
 import com.poly.duantotnghiep_jf.MainActivity;
 import com.poly.duantotnghiep_jf.R;
 
+import org.w3c.dom.Text;
+
 public class DangNhap extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference mData;
     TextInputEditText edtEmail, edtPass;
     Button btnLogin;
     ImageView btnBack;
+
+    TextView forgotpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +45,13 @@ public class DangNhap extends AppCompatActivity {
         mData = FirebaseDatabase.getInstance().getReference();
         anhXa();
 
-
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DangNhap.this, QuenMatKhau.class);
+                startActivity(intent);
+            }
+        });
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +96,7 @@ public class DangNhap extends AppCompatActivity {
                                             Intent intent = new Intent(DangNhap.this, MainActivity.class);
                                             startActivity(intent);
                                             Toast.makeText(DangNhap.this, "Đăng nhập thành công!!!", Toast.LENGTH_SHORT).show();
-                                            finish();
+
                                         }
                                     } else {
                                         // Dữ liệu không tồn tại hoặc không phải kiểu dữ liệu boolean
@@ -119,6 +130,7 @@ public class DangNhap extends AppCompatActivity {
 //    }
 
     private void anhXa(){
+        forgotpassword = findViewById(R.id.tv_quen_mk);
         btnBack = findViewById(R.id.btnBack);
         edtEmail = findViewById(R.id.edtEmail_Login);
         edtPass = findViewById(R.id.edt_password_login);

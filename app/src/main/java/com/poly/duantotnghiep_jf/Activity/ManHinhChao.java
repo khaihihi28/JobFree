@@ -65,7 +65,7 @@ public class ManHinhChao extends AppCompatActivity {
                 FirebaseUser currentUser = mAuth.getCurrentUser();
                 Intent intent;
                 if(currentUser != null){
-                    intent = new Intent(ManHinhChao.this, MainActivity.class);
+                    intent = new Intent(ManHinhChao.this, DangNhap.class);
                 }
                 else{
                     intent = new Intent(ManHinhChao.this, TaikhoanJob.class);
