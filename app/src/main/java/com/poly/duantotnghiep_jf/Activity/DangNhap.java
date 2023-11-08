@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,14 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.poly.duantotnghiep_jf.MainActivity;
 import com.poly.duantotnghiep_jf.R;
-
-import org.w3c.dom.Text;
+import com.poly.duantotnghiep_jf.test_chuc_nang_yeu_thich.List_test;
 
 public class DangNhap extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference mData;
     TextInputEditText edtEmail, edtPass;
-    Button btnLogin;
+    Button btnLogin, btnlist;
     ImageView btnBack;
 
     TextView forgotpassword;
@@ -64,6 +62,13 @@ public class DangNhap extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dangNhap();
+            }
+        });
+        btnlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DangNhap.this, List_test.class));
+
             }
         });
     }
@@ -130,6 +135,7 @@ public class DangNhap extends AppCompatActivity {
 //    }
 
     private void anhXa(){
+        btnlist = findViewById(R.id.btnlist) ;
         forgotpassword = findViewById(R.id.tv_quen_mk);
         btnBack = findViewById(R.id.btnBack);
         edtEmail = findViewById(R.id.edtEmail_Login);

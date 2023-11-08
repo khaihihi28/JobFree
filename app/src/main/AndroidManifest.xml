@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAnTotNghiep_JF">
         <activity
+            android:name=".test_chuc_nang_yeu_thich.List_test"
+            android:exported="false" />
+        <activity
+            android:name=".test_chuc_nang_yeu_thich.ListYeuThich_test"
+            android:exported="false" />
+        <activity
             android:name=".Activity.TaikhoanJob"
             android:exported="false" />
         <activity
