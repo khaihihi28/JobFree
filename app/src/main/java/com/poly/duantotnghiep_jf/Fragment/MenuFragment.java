@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.poly.duantotnghiep_jf.Helper.AuthHelper;
 import com.poly.duantotnghiep_jf.R;
 
