@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -52,27 +53,24 @@ ActivityResultLauncher<Intent> getdata;
                 .layout.item_test,viewGroup,false);
 
 
-        EditText   editTextText = (EditText) view.findViewById(R.id.editTextText);
-        EditText  editTextText2 = (EditText) view.findViewById(R.id.editTextText2);
-        EditText   editTextText3 = (EditText) view.findViewById(R.id.editTextText3);
+        TextView email = (TextView) view.findViewById(R.id.email);
 
-        Button  button4 = (Button) view.findViewById(R.id.button4);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-          button4.setText("đã yêu thích ");
-          button4.setTextColor(R.color.teal_200);
+    //    TextView  button4 = (TextView) view.findViewById(R.id.like);
+//        button4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//          button4.setText("đã yêu thích ");
+//          button4.setTextColor(R.color.teal_200);
+//
+//
+//          button4.setBackgroundColor(R.color.purple_700);
+//                Toast.makeText(context, "add list", Toast.LENGTH_SHORT).show();
 
+    //        }
+     //    });
+//
+          email.setText(list.get(i).getEmail());
 
-          button4.setBackgroundColor(R.color.purple_700);
-                Toast.makeText(context, "add list", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-          editTextText.setText(list.get(i).getManv());
-        editTextText2.setText(list.get(i).getHoten());
-        editTextText3.setText(list.get(i).getLuong());
         return view;
     }
 

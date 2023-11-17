@@ -1,9 +1,7 @@
 package com.poly.duantotnghiep_jf.test_chuc_nang_yeu_thich;
 
-import java.io.Serializable;
-
-public class User_test {
-    public User_test() {
+public class User_testList {
+    public User_testList() {
     }
 
     String email;
@@ -16,7 +14,7 @@ public class User_test {
         this.email = email;
     }
 
-    public User_test(String email) {
+    public User_testList(String email) {
         this.email = email;
     }
 }
