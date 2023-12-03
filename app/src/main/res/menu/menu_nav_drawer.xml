@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/group_title1"
+            android:title="CÁ NHÂN"
+            android:checkable="false"
+            android:enabled="false"/>
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_make_cv"
+            android:icon="@drawable/ic_cv"
+            android:title="@string/make_cv" />
+    </group>
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/group_title2"
+            android:title="NHÀ TUYỂN DỤNG"
+            android:checkable="false"
+            android:enabled="false"/>
+        <item
+            android:id="@+id/nav_unlock_acc"
+            android:icon="@drawable/ic_unlock_acc"
+            android:title="@string/unlock_acc" />
+        <item
+            android:id="@+id/nav_company_manege"
+            android:icon="@drawable/ic_page_company"
+            android:title="@string/company_manege" />
+    </group>
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/group_title3"
+            android:title="CÀI ĐẶT TÀI KHOẢN"
+            android:checkable="false"
+            android:enabled="false"/>
+        <item
+            android:id="@+id/nav_change_pass"
+            android:icon="@drawable/ic_pass"
+            android:title="@string/change_pass" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_exit"
+            android:title="@string/logout" />
+    </group>
+
+</menu>

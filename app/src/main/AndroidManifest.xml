@@ -11,6 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAnTotNghiep_JF">
         <activity
+            android:name=".Activity.ViewProfileCompany"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DetailPost"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ThuThapThongTin"
+            android:exported="false" />
+        <activity
             android:name=".Activity.TaikhoanJob"
             android:exported="false" />
         <activity

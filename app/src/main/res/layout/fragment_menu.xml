@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,6 +15,8 @@
 
 </FrameLayout>
 =======
+=======
+>>>>>>> origin/dev
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,5 +30,9 @@
         android:id="@+id/btnLogOut"
         />
 
+<<<<<<< HEAD
 </LinearLayout>
 >>>>>>> 06c7161 (Done các chức năng cơ bản, mô hình dự án)
+=======
+</LinearLayout>
+>>>>>>> origin/dev

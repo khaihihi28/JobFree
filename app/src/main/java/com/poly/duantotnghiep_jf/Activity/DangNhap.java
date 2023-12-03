@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.duantotnghiep_jf.Helper.AuthHelper;
+import com.poly.duantotnghiep_jf.Helper.FireBaseHelper;
 import com.poly.duantotnghiep_jf.MainActivity;
 import com.poly.duantotnghiep_jf.R;
 
@@ -46,6 +48,7 @@ public class DangNhap extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DangNhap.this, TaikhoanJob.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -60,51 +63,32 @@ public class DangNhap extends AppCompatActivity {
     private void dangNhap(){
         String email = edtEmail.getText().toString();
         String password = edtPass.getText().toString();
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            String uid = user.getUid();
-                            DatabaseReference isNewAccountReference = mData.child("Account").child(uid).child("newAccount");
-                            isNewAccountReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if (snapshot.exists() && snapshot.getValue() instanceof Boolean) {
-                                        boolean isNewAccount = (boolean) snapshot.getValue();
-
-                                        if (isNewAccount) {
-                                            // 'isNewAccount' là true, chuyển người dùng đến màn hình điền thông tin
-                                            Intent intent = new Intent(DangNhap.this, QuenMatKhau.class);
-                                            Toast.makeText(DangNhap.this, uid, Toast.LENGTH_SHORT).show();
-                                            startActivity(intent);
-                                            finish();
-                                        } else {
-                                            // 'isNewAccount' là false, chuyển người dùng đến màn hình chính (trang chủ)
-                                            Intent intent = new Intent(DangNhap.this, MainActivity.class);
-                                            startActivity(intent);
-                                            Toast.makeText(DangNhap.this, "Đăng nhập thành công!!!", Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        }
-                                    } else {
-                                        // Dữ liệu không tồn tại hoặc không phải kiểu dữ liệu boolean
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
-
-                            Toast.makeText(DangNhap.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            Toast.makeText(DangNhap.this, "Fail!!", Toast.LENGTH_SHORT).show();
-                        }
+        AuthHelper.signInHelper(email, password, new AuthHelper.OnLoginCompleteListener() {
+            @Override
+            public void onLoginSuccess(String uid) {
+                FireBaseHelper.checkIsNewAccount(isNewAccount -> {
+                    if(isNewAccount){
+                        // 'isNewAccount' là true, chuyển người dùng đến màn hình điền thông tin
+                        Intent intent = new Intent(DangNhap.this, ThuThapThongTin.class);
+                        Toast.makeText(DangNhap.this, "Đăng nhập thành công!!!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+//                      'isNewAccount' là false, chuyển người dùng đến màn hình chính (trang chủ)
+                        Intent intent = new Intent(DangNhap.this, MainActivity.class);
+                        startActivity(intent);
+                        Toast.makeText(DangNhap.this, "Đăng nhập thành công!!!", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
+            }
+
+            @Override
+            public void onLoginFailure(String errorMessage) {
+                Toast.makeText(DangNhap.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 //    @Override
 //    public void onStart() {
