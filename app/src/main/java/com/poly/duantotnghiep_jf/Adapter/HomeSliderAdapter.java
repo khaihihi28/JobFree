@@ -42,11 +42,8 @@ public class HomeSliderAdapter extends RecyclerView.Adapter<HomeSliderAdapter.Sl
 
         public SliderViewHolder(@NonNull View itemView) {
             super(itemView);
-<<<<<<< HEAD
             imageView = itemView.findViewById(R.id.imageView);
-=======
             imageView = itemView.findViewById(R.id.img_slider);
->>>>>>> origin/dev
         }
     }
 }

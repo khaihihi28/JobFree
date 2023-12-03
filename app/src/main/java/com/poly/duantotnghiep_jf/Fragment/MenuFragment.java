@@ -37,12 +37,8 @@ public class MenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AuthHelper.signOutHelper();
-<<<<<<< HEAD
-
-=======
                 Intent intent = new Intent(getActivity(), TaikhoanJob.class);
                 startActivity(intent);
->>>>>>> origin/dev
             }
         });
 

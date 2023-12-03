@@ -44,11 +44,7 @@ public class AuthHelper {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
                             String uid = user.getUid();
-<<<<<<< HEAD
-                            Account account = new Account(email, name, ho, phone, true);
-=======
                             Account account = new Account("R.drawable.profile_img_default", email, name, ho, phone, true);
->>>>>>> origin/dev
                             mDatabase.child(uid).setValue(account);
                             listener.onRegistrationSuccess(uid);
                         } else {

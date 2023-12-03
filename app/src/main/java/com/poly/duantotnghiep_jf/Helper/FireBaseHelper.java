@@ -1,8 +1,5 @@
 package com.poly.duantotnghiep_jf.Helper;
 
-import android.content.Intent;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -12,9 +9,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.poly.duantotnghiep_jf.Activity.DangNhap;
-import com.poly.duantotnghiep_jf.Activity.ThuThapThongTin;
-import com.poly.duantotnghiep_jf.MainActivity;
 
 public class FireBaseHelper {
     ///------------------ACOUNT---------------------------
@@ -25,11 +19,6 @@ public class FireBaseHelper {
         FirebaseUser currentUser = auth.getCurrentUser();
         return currentUser != null;
     }
-<<<<<<< HEAD
-    //get user
-=======
-    //get currentuser
->>>>>>> origin/dev
     public static FirebaseUser getCurrentUser() {
         return FirebaseAuth.getInstance().getCurrentUser();
     }

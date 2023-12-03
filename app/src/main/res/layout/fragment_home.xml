@@ -1,183 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".Fragment.HomeFragment">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-=======
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPageGrey"
     tools:context=".Fragment.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        >
->>>>>>> origin/dev
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-
             <LinearLayout
                 android:id="@+id/linearLayout6"
                 android:layout_width="match_parent"
-<<<<<<< HEAD
-                android:layout_height="336dp"
-=======
                 android:layout_height="240dp"
->>>>>>> origin/dev
                 android:background="@drawable/bovien_button"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                
                 <androidx.viewpager2.widget.ViewPager2
-<<<<<<< HEAD
-                    android:id="@+id/viewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="104dp"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="96dp"
-                    android:layout_marginRight="16dp" />
-=======
-                    android:id="@+id/viewPagerSlide"
-                    android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
-                     />
->>>>>>> origin/dev
-
+                    android:id="@+id/viewPagerSlide"
+                    android:layout_width="match_parent"/>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:text="TextView"
+                    android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:id="@+id/textView18"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bovien_white_gradient"
-                        android:orientation="vertical"
-<<<<<<< HEAD
-                        android:text="TextView" />
-=======
-                        android:text="TextView" >
-
-                    </LinearLayout>
->>>>>>> origin/dev
-
-                    <LinearLayout
-                        android:id="@+id/textView19"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bovien_white_gradient"
-                        android:orientation="vertical"
-                        android:text="TextView" />
                 </LinearLayout>
-
+                <LinearLayout
+                    android:id="@+id/textView19"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bovien_white_gradient"
+                    android:orientation="vertical"
+                    android:text="TextView" />
+                
             </LinearLayout>
 
             <LinearLayout
-<<<<<<< HEAD
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/bovien_textinput"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayout6">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_weight="0.0"
-                    android:src="@drawable/serch_icon_den" />
-
-                <EditText
-                    android:id="@+id/editTextText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="Tìm kiếm công việc, công ty,..."
-                    android:inputType="text"
-                    android:textColorHint="#48000000" />
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:orientation="vertical">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:background="@drawable/nen_main"
-            tools:layout_gravity="center">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="120dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="16dp"
-
-                android:background="@drawable/logo_main"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/textView16"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/botron"
-                android:gravity="center"
-                android:padding="8dp"
-                android:src="@drawable/serch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/textView17"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/botron"
-                android:gravity="center"
-                android:padding="8dp"
-                android:src="@drawable/chuong"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-=======
                 android:id="@+id/linearMore"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
@@ -320,9 +190,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle_viecGoiY" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
->>>>>>> origin/dev
 
 </FrameLayout>
