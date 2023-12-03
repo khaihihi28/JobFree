@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPageGrey"
     tools:context=".Fragment.HomeFragment">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -18,7 +21,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout6"
                 android:layout_width="match_parent"
-                android:layout_height="336dp"
+                android:layout_height="240dp"
                 android:background="@drawable/bovien_button"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -27,13 +30,11 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager"
+                    android:id="@+id/viewPagerSlide"
                     android:layout_width="match_parent"
-                    android:layout_height="104dp"
+                    android:layout_height="100dp"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="96dp"
-                    android:layout_marginRight="16dp" />
+                     />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,7 +50,9 @@
                         android:layout_weight="1"
                         android:background="@drawable/bovien_white_gradient"
                         android:orientation="vertical"
-                        android:text="TextView" />
+                        android:text="TextView" >
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/textView19"
@@ -65,87 +68,150 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearMore"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/bovien_textinput"
-                android:gravity="center"
+                android:layout_height="80dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bovien_white_gradient"
                 android:orientation="horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayout6">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+                >
+                <RelativeLayout
+                    android:id="@+id/relative_Cty"
+                    android:layout_width="72dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_weight="0.0"
-                    android:src="@drawable/serch_icon_den" />
+                    <ImageView
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/img_cty"
+                        android:layout_width="match_parent"
+                        android:src="@drawable/ic_cty"
+                        android:layout_height="40dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/img_cty"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:text="Công ty"/>
+                </RelativeLayout>
 
-                <EditText
-                    android:id="@+id/editTextText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="Tìm kiếm công việc, công ty,..."
-                    android:inputType="text"
-                    android:textColorHint="#48000000" />
+                <RelativeLayout
+                    android:id="@+id/relative_ViecLam"
+                    android:layout_width="72dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/img_viecLam"
+                        android:layout_width="match_parent"
+                        android:src="@drawable/ic_vieclam"
+                        android:layout_height="40dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/img_viecLam"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:text="Việc làm"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative_Luong"
+                    android:layout_width="72dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/img_luong"
+                        android:layout_width="match_parent"
+                        android:src="@drawable/ic_money"
+                        android:layout_height="40dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/img_luong"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:text="Lương"/>
+                </RelativeLayout>
+
             </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:orientation="vertical">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:background="@drawable/nen_main"
-            tools:layout_gravity="center">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="120dp"
-                android:layout_height="32dp"
+            <TextView
+                android:id="@+id/tvTitle_viecTot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Việc làm tốt nhất"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:layout_marginStart="16dp"
-
-                android:background="@drawable/logo_main"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/textView16"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/botron"
-                android:gravity="center"
-                android:padding="8dp"
-                android:src="@drawable/serch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/textView17"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/botron"
-                android:gravity="center"
-                android:padding="8dp"
-                android:src="@drawable/chuong"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearMore" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_viecTot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle_viecTot" />
+
+            <TextView
+                android:id="@+id/tvTitle_viecGoiY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Việc làm gợi ý"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView_viecTot" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_viecGoiY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle_viecGoiY" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

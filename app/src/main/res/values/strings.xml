@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">JobFree</string>
+    <string name="micsearch">MicSearch</string>
+    <string name="profile">Hồ sơ của tôi</string>
+    <string name="make_cv">Làm CV online</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="unlock_acc">Mở tài khoản doanh nghiệp</string>
+    <string name="company_manege">Trang doanh nghiệp</string>
+    <string name="change_pass">Đổi mật khẩu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="card_numbering">1/5</string>
+    <string name="heading">Heading</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
