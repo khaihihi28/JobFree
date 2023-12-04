@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.duantotnghiep_jf.Activity.ProfileUser;
 import com.poly.duantotnghiep_jf.Activity.TaikhoanJob;
 import com.poly.duantotnghiep_jf.Adapter.ViewPagerAdapter;
 import com.poly.duantotnghiep_jf.Fragment.HomeFragment;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
+
 
         Menu menu = navigationView.getMenu();
         MenuItem unLockAccItem = menu.findItem(R.id.nav_unlock_acc);
@@ -133,7 +135,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_profile:
-                Toast.makeText(this, R.string.profile, Toast.LENGTH_SHORT).show();
+                Intent intentProfile = new Intent(MainActivity.this, ProfileUser.class);
+                startActivity(intentProfile);
                 break;
             case R.id.nav_make_cv:
                 Toast.makeText(this, R.string.make_cv, Toast.LENGTH_SHORT).show();
@@ -157,10 +160,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default:
                 break;
         }
+        item.setCheckable(false);
+
         // Đóng Navigation Drawer sau khi xử lý sự kiện
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-
         return true;
     }
 
