@@ -25,7 +25,7 @@ public class FireBaseHelper {
         FirebaseUser currentUser = auth.getCurrentUser();
         return currentUser != null;
     }
-    //get user
+    //get currentuser
     public static FirebaseUser getCurrentUser() {
         return FirebaseAuth.getInstance().getCurrentUser();
     }

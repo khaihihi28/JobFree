@@ -51,25 +51,6 @@ public class DangKy extends AppCompatActivity {
         String name = edtName.getText().toString();
         String ho = edtHo.getText().toString();
         String phone = edtPhone.getText().toString();
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if(task.isSuccessful()){
-//                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                            String uid = user.getUid();
-//                            Account acount = new Account(email,name,ho,phone, true);
-//                            mDatabase.child(uid).setValue(acount);
-//                            Toast.makeText(DangKy.this, "Đăng ký thành công!!!", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(DangKy.this, TaikhoanJob.class);
-//                            startActivity(intent);
-//                            finish();
-//                        }
-//                        else {
-//                            Toast.makeText(DangKy.this, "Fail!!!", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
         AuthHelper.signUpHelper(email, password, name, ho, phone, new AuthHelper.OnRegistrationCompleteListener() {
             @Override
             public void onRegistrationSuccess(String uid) {
