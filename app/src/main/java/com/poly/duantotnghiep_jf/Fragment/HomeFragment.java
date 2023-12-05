@@ -1,16 +1,15 @@
 package com.poly.duantotnghiep_jf.Fragment;
 
-<<<<<<< HEAD
-=======
+
+import static android.system.Os.bind;
+
 import android.content.Intent;
->>>>>>> origin/dev
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +19,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.poly.duantotnghiep_jf.Adapter.HomeSliderAdapter;
 import com.poly.duantotnghiep_jf.R;
 
-=======
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -54,15 +52,12 @@ import com.poly.duantotnghiep_jf.R;
 import com.poly.duantotnghiep_jf.ViewHolder.PostViewHolder;
 
 import java.util.ArrayList;
->>>>>>> origin/dev
+
 import java.util.Arrays;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-<<<<<<< HEAD
 
-    private ViewPager2 viewPager;
-=======
     private RecyclerView recyclerView_ViecTot, recyclerView_ViecGoiY;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.LayoutManager layoutManager_ViecGoiY;
@@ -80,32 +75,20 @@ public class HomeFragment extends Fragment {
 
     private ViewPager2 viewPagerSlide;
 
-
->>>>>>> origin/dev
     private HomeSliderAdapter sliderAdapter;
 
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
 
-<<<<<<< HEAD
-=======
     CombinedData combinedData;
 
     public static int positonCheck;
 
->>>>>>> origin/dev
     public HomeFragment() {
     }
 
-    @Nullable
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-<<<<<<< HEAD
-        viewPager = view.findViewById(R.id.viewPager);
-        setupSlider();
-=======
         //init Firebase
         database = FirebaseDatabase.getInstance();
         mRefPost = database.getReference("Post");
@@ -130,25 +113,9 @@ public class HomeFragment extends Fragment {
         loadPost();
 //        setListIdCompany();
         loadPostGoiY();
->>>>>>> origin/dev
 
         return view;
     }
-
-<<<<<<< HEAD
-    private void setupSlider() {
-        List<Integer> imageList = Arrays.asList(
-                R.drawable.logo,
-                R.drawable.logo_don_main,
-                R.drawable.logofb,
-                R.drawable.logo2,
-                R.drawable.chu_logo,
-                R.drawable.logo_main
-        );
-
-        sliderAdapter = new HomeSliderAdapter(imageList);
-        viewPager.setAdapter(sliderAdapter);
-=======
     private void loadPost(){
         FirebaseRecyclerOptions<Post> options =
                 new FirebaseRecyclerOptions.Builder<Post>()
@@ -430,10 +397,8 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
     private void setupSlider() {
-        List<Integer> imageList = Arrays.asList(
-                R.drawable.card_image_1,
+        List<Integer> imageList = Arrays.asList(  R.drawable.card_image_1,
                 R.drawable.card_image_2,
                 R.drawable.card_image_3,
                 R.drawable.card_image_4
@@ -441,45 +406,31 @@ public class HomeFragment extends Fragment {
 
         sliderAdapter = new HomeSliderAdapter(imageList);
         viewPagerSlide.setAdapter(sliderAdapter);
->>>>>>> origin/dev
 
         // Auto chuyển đổi slide mỗi 3 giây
         runnable = new Runnable() {
             @Override
             public void run() {
-<<<<<<< HEAD
-                int currentItem = viewPager.getCurrentItem();
-                int totalItems = imageList.size();
-                int nextItem = (currentItem + 1) % totalItems;
-                viewPager.setCurrentItem(nextItem);
-=======
                 int currentItem = viewPagerSlide.getCurrentItem();
                 int totalItems = imageList.size();
                 int nextItem = (currentItem + 1) % totalItems;
                 viewPagerSlide.setCurrentItem(nextItem);
->>>>>>> origin/dev
                 handler.postDelayed(this, 3000); // 3000 milliseconds = 3 seconds
             }
-        };
-        // Khởi động auto chuyển đổi
+    };
+    // Khởi động auto chuyển đổi
         handler.postDelayed(runnable, 3000); // 3000 milliseconds = 3 seconds
-    }
-<<<<<<< HEAD
-=======
+}
 
->>>>>>> origin/dev
     @Override
     public void onDestroyView() {
         // Dừng auto chuyển đổi khi Fragment bị hủy
         handler.removeCallbacks(runnable);
         super.onDestroyView();
     }
-<<<<<<< HEAD
-=======
     private void bind(View view){
         viewPagerSlide = view.findViewById(R.id.viewPagerSlide);
         recyclerView_ViecTot = view.findViewById(R.id.recyclerView_viecTot);
         recyclerView_ViecGoiY = view.findViewById(R.id.recyclerView_viecGoiY);
     }
->>>>>>> origin/dev
 }

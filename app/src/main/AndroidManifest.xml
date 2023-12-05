@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAnTotNghiep_JF">
         <activity
-            android:name=".Activity.ViewProfileCompany"
+            android:name=".Util.ViewProfileCompany"
             android:exported="false" />
         <activity
             android:name=".Activity.DetailPost"

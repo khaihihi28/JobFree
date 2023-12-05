@@ -1,15 +1,12 @@
-package com.poly.duantotnghiep_jf.Activity;
+package com.poly.duantotnghiep_jf.Util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +18,6 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,9 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
-import com.poly.duantotnghiep_jf.Adapter.ViewPagerAdapter;
-import com.poly.duantotnghiep_jf.Fragment.HomeFragment;
-import com.poly.duantotnghiep_jf.Fragment.MenuFragment;
+import com.poly.duantotnghiep_jf.Activity.DetailPost;
 import com.poly.duantotnghiep_jf.Helper.CompanyHelper;
 import com.poly.duantotnghiep_jf.Helper.FireBaseHelper;
 import com.poly.duantotnghiep_jf.Helper.PostHelper;
@@ -40,7 +34,6 @@ import com.poly.duantotnghiep_jf.Model.Company;
 import com.poly.duantotnghiep_jf.Model.Post;
 import com.poly.duantotnghiep_jf.R;
 import com.poly.duantotnghiep_jf.ViewHolder.PostViewHolder;
-import com.poly.duantotnghiep_jf.viewPager.CustomViewPager;
 
 import java.util.Objects;
 

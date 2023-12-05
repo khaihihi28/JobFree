@@ -13,7 +13,6 @@ import com.poly.duantotnghiep_jf.Model.Post;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class PostHelper {
     public static void checkIfUserLikedPost(String postId, String uid, OnCheckLikeListener listener) {
         DatabaseReference postRef = FirebaseDatabase.getInstance().getReference("Post").child(postId).child("likes");

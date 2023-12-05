@@ -30,6 +30,7 @@ import com.poly.duantotnghiep_jf.Helper.PostHelper;
 import com.poly.duantotnghiep_jf.Model.Company;
 import com.poly.duantotnghiep_jf.Model.Post;
 import com.poly.duantotnghiep_jf.R;
+import com.poly.duantotnghiep_jf.Util.ViewProfileCompany;
 
 import java.util.Objects;
 
