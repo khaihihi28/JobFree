@@ -180,7 +180,7 @@ public class DetailPost extends AppCompatActivity {
         if(followed) {
             btnFollowCompany.setBackground(ContextCompat.getDrawable(DetailPost.this, R.drawable.bovien_button_viencam));
             btnFollowCompany.setTextColor(ContextCompat.getColor(DetailPost.this, R.color.orange));
-            btnFollowCompany.setText("Followed");
+            btnFollowCompany.setText("Unfollow");
         } else {
             btnFollowCompany.setBackground(ContextCompat.getDrawable(DetailPost.this, R.drawable.bovien_button_cam));
             btnFollowCompany.setTextColor(ContextCompat.getColor(DetailPost.this, R.color.white));
@@ -325,6 +325,17 @@ public class DetailPost extends AppCompatActivity {
 
                     }
                 });
+                PostHelper.getPostCount(currentPost.getIdCompany(), new PostHelper.PostCountCallback() {
+                    @Override
+                    public void onPostCountReceived(long postCount) {
+                        tv_count_post.setText(postCount + " bài tuyển dụng.");
+                    }
+
+                    @Override
+                    public void onError(String errorMessage) {
+
+                    }
+                });
                 setUpBtnAddToList();
                 setUpBtnUngTuyen();
                 setUpBtnFollow();
@@ -344,7 +355,7 @@ public class DetailPost extends AppCompatActivity {
                 if(followed){
                     btnFollowCompany.setBackground(ContextCompat.getDrawable(DetailPost.this, R.drawable.bovien_button_viencam));
                     btnFollowCompany.setTextColor(ContextCompat.getColor(DetailPost.this, R.color.orange));
-                    btnFollowCompany.setText("Followed");
+                    btnFollowCompany.setText("Unfollow");
                 }
                 else {
                     btnFollowCompany.setBackground(ContextCompat.getDrawable(DetailPost.this, R.drawable.bovien_button_cam));
@@ -367,7 +378,7 @@ public class DetailPost extends AppCompatActivity {
                 if(isRecruited){
                     btn_UngTuyen.setBackground(ContextCompat.getDrawable(DetailPost.this, R.drawable.bovien_button_viencam));
                     btn_UngTuyen.setTextColor(ContextCompat.getColor(DetailPost.this, R.color.orange));
-                    btn_UngTuyen.setText("Đã ứng tuyển");
+                    btn_UngTuyen.setText("Hủy ứng tuyển");
                 }
                 else {
                     btn_UngTuyen.setBackground(ContextCompat.getDrawable(DetailPost.this, R.drawable.bovien_button_cam));
@@ -439,5 +450,11 @@ public class DetailPost extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        setUpBtnFollow();
     }
 }

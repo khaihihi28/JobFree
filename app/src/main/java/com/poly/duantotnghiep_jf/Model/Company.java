@@ -12,6 +12,7 @@ public class Company {
     private List<String> listAnh;
     private boolean pheDuyet;
     private int followCount;
+    private String gioiThieu;
 
     public Company() {
     }
@@ -26,6 +27,15 @@ public class Company {
         pheDuyet = false;
         avatar = "R.drawable.avatar_company_default";
         followCount = 0;
+        gioiThieu = "";
+    }
+
+    public String getGioiThieu() {
+        return gioiThieu;
+    }
+
+    public void setGioiThieu(String gioiThieu) {
+        this.gioiThieu = gioiThieu;
     }
 
     public String getUidAccount() {

@@ -101,4 +101,38 @@ public class PostHelper {
 
         void onCheckUngTuyenError(String errorMessage);
     }
+
+    public interface PostCountCallback {
+        void onPostCountReceived(long postCount);
+
+        void onError(String errorMessage);
+    }
+
+    public static void getPostCount(String companyId, final PostCountCallback callback) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Post");
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                long postCount = 0;
+
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        String idCompany = postSnapshot.child("idCompany").getValue(String.class);
+                        if (companyId.equals(idCompany)) {
+                            postCount++;
+                        }
+                    }
+                    callback.onPostCountReceived(postCount);
+                } else {
+                    callback.onError("Không có dữ liệu bài đăng");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                callback.onError("Lỗi đọc dữ liệu từ Firebase: " + databaseError.getMessage());
+            }
+        });
+    }
 }

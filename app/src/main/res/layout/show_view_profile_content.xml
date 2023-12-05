@@ -59,7 +59,7 @@
                 android:layout_marginTop="8dp"
                 >
                 <TextView
-                    android:id="@+id/tv_gioiThieu"
+                    android:id="@+id/tv_gioiThieu_company"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
@@ -133,10 +133,10 @@
             android:layout_height="wrap_content"
             android:text="Danh sách bài đăng"
             android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
             android:textSize="20sp"
-            android:layout_gravity="center"
             android:textColor="@color/black"
-            android:textStyle="bold"
+            android:textStyle="bold|italic"
             android:layout_marginBottom="8dp"/>
 
         <androidx.recyclerview.widget.RecyclerView

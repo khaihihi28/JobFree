@@ -40,7 +40,7 @@ public class DangNhap extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mData = FirebaseDatabase.getInstance().getReference();
-        anhXa();
+        find();
 
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +102,7 @@ public class DangNhap extends AppCompatActivity {
 //        }
 //    }
 
-    private void anhXa(){
+    private void find(){
         btnBack = findViewById(R.id.btnBack);
         edtEmail = findViewById(R.id.edtEmail_Login);
         edtPass = findViewById(R.id.edt_password_login);

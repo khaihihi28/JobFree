@@ -105,8 +105,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     de.hdodenhof.circleimageview.CircleImageView profileImageView = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
                     TextView profile_name = navigationView.getHeaderView(0).findViewById(R.id.profile_name);
                     TextView profile_email = navigationView.getHeaderView(0).findViewById(R.id.profile_email);
+                    TextView tv_count_coin = navigationView.getHeaderView(0).findViewById(R.id.tv_count_coin);
+
                     profile_name.setText(account.getName().toString());
                     profile_email.setText(account.getEmail().toString());
+                    tv_count_coin.setText(String.valueOf(account.getCoin()));
                     if(account.getAvatar().equals("R.drawable.profile_img_default")){
                         Glide.with(getBaseContext())
                                 .load(R.drawable.profile_img_default)
@@ -122,6 +125,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        TextView btn_nap_coin = navigationView.getHeaderView(0).findViewById(R.id.btn_nap_coin);
+        btn_nap_coin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });

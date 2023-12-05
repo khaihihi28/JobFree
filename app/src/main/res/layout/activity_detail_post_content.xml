@@ -429,25 +429,6 @@
             android:text="Hỗ trợ ....... Tăng lương từ 1-2 năm làm việc .... Môi trường làm việc..."
             />
         <TextView
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mô tả công việc"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        />
-
-        <TextView
-            android:layout_marginLeft="8dp"
-            android:textSize="14sp"
-            android:id="@+id/tv_moTaCongViec"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_height="wrap_content"
-            android:text="Làm việc full time, công việc lập trình app"
-            />
-        <TextView
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -466,6 +447,26 @@
             android:layout_height="wrap_content"
             android:text="Tốt nghiệp đại học"
             />
+        <TextView
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mô tả công việc"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textSize="14sp"
+            android:id="@+id/tv_moTaCongViec"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:text="Làm việc full time, công việc lập trình app"
+            />
+
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"

@@ -17,6 +17,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -44,6 +47,8 @@ import com.poly.duantotnghiep_jf.viewPager.CustomViewPager;
 
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ViewProfileCompany extends AppCompatActivity {
 
     String companyId = "";
@@ -60,11 +65,17 @@ public class ViewProfileCompany extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     FirebaseRecyclerAdapter<Post, PostViewHolder> adapter;
 
+    ImageView img_top_company,btn_chat;
+    CircleImageView img_avatar_company_profile;
+    TextView tv_name_company, tv_count_follow, tv_gioiThieu_company, btn_follow,btn_view_info;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile_company);
         bind();
+
+        
 
         //init firebase
         database = FirebaseDatabase.getInstance();
@@ -90,9 +101,87 @@ public class ViewProfileCompany extends AppCompatActivity {
             getDetailCompany(companyId);
             loadListPostOfCompany();
         }
+        btn_follow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickFollow();
+            }
+        });
+        btn_view_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ViewProfileCompany.this, "Xem thông tin ", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btn_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    private void clickFollow() {
+        DatabaseReference companyRef = FirebaseDatabase.getInstance().getReference("Company").child(companyId);
+        DatabaseReference followRef = companyRef.child("follower");
+
+        companyRef.runTransaction(new Transaction.Handler() {
+            @NonNull
+            @Override
+            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+                Company mCompany = mutableData.getValue(Company.class);
+
+                if (mCompany == null) {
+                    return Transaction.success(mutableData);
+                }
+                CompanyHelper.checkIfUserFollowCompany(companyId, FireBaseHelper.getCurrentUserUid(), new CompanyHelper.OnCheckFollowListener() {
+                            @Override
+                            public void onCompanyFollower(boolean followed) {
+                                if(followed) {
+                                    followRef.child(FireBaseHelper.getCurrentUserUid()).removeValue();
+                                    mCompany.setFollowCount(mCompany.getFollowCount() -1);
+                                    companyRef.child("followCount").setValue(mCompany.getFollowCount());
+                                }
+                                else {
+                                    followRef.child(FireBaseHelper.getCurrentUserUid()).setValue(true);
+                                    mCompany.setFollowCount(mCompany.getFollowCount() + 1);
+                                    companyRef.child("followCount").setValue(mCompany.getFollowCount());
+                                }
+                                updateFollowButtonUI(!followed);
+                            }
+
+                            @Override
+                            public void onCheckFollowError(String errorMessage) {
+
+                            }
+                        }
+                );
 
 
 
+                // Trả về thành công
+                return Transaction.success(mutableData);
+            }
+
+            @Override
+            public void onComplete(@Nullable DatabaseError error, boolean committed, @Nullable DataSnapshot currentData) {
+                if (error != null) {
+                    // Xử lý lỗi khi thực hiện giao dịch
+                }
+            }
+        });
+    }
+
+    private void updateFollowButtonUI(boolean followed) {
+        if(followed) {
+            btn_follow.setBackground(ContextCompat.getDrawable(ViewProfileCompany.this, R.drawable.bovien_button_viencam));
+            btn_follow.setTextColor(ContextCompat.getColor(ViewProfileCompany.this, R.color.orange));
+            btn_follow.setText("Unfollow");
+        } else {
+            btn_follow.setBackground(ContextCompat.getDrawable(ViewProfileCompany.this, R.drawable.bovien_button_cam));
+            btn_follow.setTextColor(ContextCompat.getColor(ViewProfileCompany.this, R.color.white));
+            btn_follow.setText("Follow");
+        }
     }
 
     private void loadListPostOfCompany() {
@@ -244,11 +333,39 @@ public class ViewProfileCompany extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 currentCompany = snapshot.getValue(Company.class);
-
+                Glide.with(getBaseContext()).load(currentCompany.getAvatar()).into(img_top_company);
+                Glide.with(getBaseContext()).load(currentCompany.getAvatar()).into(img_avatar_company_profile);
+                tv_name_company.setText(currentCompany.getName());
+                tv_count_follow.setText(String.valueOf(currentCompany.getFollowCount()));
+                tv_gioiThieu_company.setText(currentCompany.getGioiThieu());
+                setUpBtnFollow();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void setUpBtnFollow() {
+        CompanyHelper.checkIfUserFollowCompany(companyId, FireBaseHelper.getCurrentUserUid(), new CompanyHelper.OnCheckFollowListener() {
+            @Override
+            public void onCompanyFollower(boolean followed) {
+                if(followed){
+                    btn_follow.setBackground(ContextCompat.getDrawable(ViewProfileCompany.this, R.drawable.bovien_button_viencam));
+                    btn_follow.setTextColor(ContextCompat.getColor(ViewProfileCompany.this, R.color.orange));
+                    btn_follow.setText("Unfollow");
+                }
+                else {
+                    btn_follow.setBackground(ContextCompat.getDrawable(ViewProfileCompany.this, R.drawable.bovien_button_cam));
+                    btn_follow.setTextColor(ContextCompat.getColor(ViewProfileCompany.this, R.color.white));
+                    btn_follow.setText("Follow");
+                }
+            }
+
+            @Override
+            public void onCheckFollowError(String errorMessage) {
 
             }
         });
@@ -268,5 +385,13 @@ public class ViewProfileCompany extends AppCompatActivity {
 
     private void bind(){
         recyclerView_list_post_of_company = findViewById(R.id.recyclerView_list_post_of_company);
+        img_top_company = findViewById(R.id.img_top_company);
+        btn_chat = findViewById(R.id.btn_chat);
+        img_avatar_company_profile = findViewById(R.id.img_avatar_company_profile);
+        tv_name_company = findViewById(R.id.tv_name_company);
+        tv_count_follow = findViewById(R.id.tv_count_follow);
+        tv_gioiThieu_company = findViewById(R.id.tv_gioiThieu_company);
+        btn_follow = findViewById(R.id.btn_follow);
+        btn_view_info = findViewById(R.id.btn_view_info);
     }
 }
