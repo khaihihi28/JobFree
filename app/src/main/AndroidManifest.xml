@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAnTotNghiep_JF">
         <activity
+            android:name=".Activity.CreateCompany"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MakeCV"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ProfileUser"
             android:exported="false" />
         <activity
