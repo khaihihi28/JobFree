@@ -7,7 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorVeryLightGrey">#E0E0E0</color>
+    <color name="colorPageGrey">#EEEEEE</color>
+    <color name="colorGreyTransparent">#50000000</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="bg_post">#33000AFF</color>
+    <color name="bg_post_dark">#33000353</color>
     <color name="red">#FF0000</color>
     <color name="orange">#F05123</color>
-    <color name="colorPageGrey">#EEEEEE</color>
+    <color name="colorGrey">#616161</color>
+    <color name="color_main_app">#204B9D</color>
+    <color name="color_main_app_dark">#101A40</color>
+    <color name="color_light_gray">#E9E9E9</color>
+
 </resources>

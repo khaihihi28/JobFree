@@ -1,5 +1,8 @@
 package com.poly.duantotnghiep_jf.Helper;
 
+import android.content.Intent;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -9,6 +12,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.duantotnghiep_jf.Activity.DangNhap;
+import com.poly.duantotnghiep_jf.Activity.ThuThapThongTin;
+import com.poly.duantotnghiep_jf.MainActivity;
 
 public class FireBaseHelper {
     ///------------------ACOUNT---------------------------

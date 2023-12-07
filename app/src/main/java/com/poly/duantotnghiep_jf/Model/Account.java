@@ -13,6 +13,7 @@ public class Account {
     private String timeWork;
     private String trinhDo;
     private boolean manegeCompany;
+    private int coin;
 
     public Account() {
     }
@@ -30,6 +31,15 @@ public class Account {
         timeWork = "";
         trinhDo = "";
         manegeCompany = false;
+        coin = 0;
+    }
+
+    public int getCoin() {
+        return coin;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
     }
 
     public String getChuyenNganh() {

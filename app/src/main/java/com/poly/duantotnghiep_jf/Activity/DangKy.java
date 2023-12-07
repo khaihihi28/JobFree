@@ -17,11 +17,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.poly.duantotnghiep_jf.Helper.AuthHelper;
 import com.poly.duantotnghiep_jf.Model.Account;
 import com.poly.duantotnghiep_jf.R;
 
 public class DangKy extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;///////////////////////////////
     private DatabaseReference mDatabase;
     TextInputEditText edtName, edtHo, edtPhone, edtEmail, edtPass;
     TextView btnDangKy;
@@ -50,25 +51,20 @@ public class DangKy extends AppCompatActivity {
         String name = edtName.getText().toString();
         String ho = edtHo.getText().toString();
         String phone = edtPhone.getText().toString();
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            String uid = user.getUid();
-                            Account acount = new Account(email,name,ho,phone, true);
-                            mDatabase.child(uid).setValue(acount);
-                            Toast.makeText(DangKy.this, "Đăng ký thành công!!!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(DangKy.this, TaikhoanJob.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                        else {
-                            Toast.makeText(DangKy.this, "Fail!!!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        AuthHelper.signUpHelper(email, password, name, ho, phone, new AuthHelper.OnRegistrationCompleteListener() {
+            @Override
+            public void onRegistrationSuccess(String uid) {
+                Toast.makeText(DangKy.this, "Đăng ký thành công!!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(DangKy.this, TaikhoanJob.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onRegistrationFailure(String errorMessage) {
+                Toast.makeText(DangKy.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void anhXa(){
