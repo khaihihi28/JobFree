@@ -17,7 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.poly.duantotnghiep_jf.R;
-
+///////////////////////////////
 public class QuenMatKhau extends AppCompatActivity {
 
 
