@@ -2,12 +2,14 @@ package com.poly.duantotnghiep_jf;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,9 +28,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.duantotnghiep_jf.Activity.CreateCompany;
+import com.poly.duantotnghiep_jf.Activity.MakeCV;
 import com.poly.duantotnghiep_jf.Activity.ProfileUser;
 import com.poly.duantotnghiep_jf.Activity.TaikhoanJob;
 import com.poly.duantotnghiep_jf.Adapter.ViewPagerAdapter;
+import com.poly.duantotnghiep_jf.BottomDialogFragment.BottomUnlockAccountFragment;
 import com.poly.duantotnghiep_jf.Fragment.HomeFragment;
 import com.poly.duantotnghiep_jf.Fragment.KhamPhaFragment;
 import com.poly.duantotnghiep_jf.Fragment.MenuFragment;
@@ -44,6 +49,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Account account;
 
     BottomNavigationView bottomNavigationView;
+    NavigationView navigationView;
+
+    MenuItem unLockAccItem;
+    MenuItem companyManegeItem;
+    TextView profile_name,profile_email,tv_count_coin,btn_nap_coin;
+    Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -72,17 +83,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
-        navigationView.setNavigationItemSelectedListener(this);
+        initDataView();
 
 
-        Menu menu = navigationView.getMenu();
-        MenuItem unLockAccItem = menu.findItem(R.id.nav_unlock_acc);
-        MenuItem companyManegeItem = menu.findItem(R.id.nav_company_manege);
 
-        AccountHelper.checkIsManegeCompany(manegeCompany -> {
-            if(manegeCompany){
+
+
+        btn_nap_coin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+
+        mSearchView.attachNavigationDrawerToMenuButton(drawer);
+    }
+
+    private void initDataView(){
+        AccountHelper.checkIsActiveAccount(isActive -> {
+            if(isActive){
                 unLockAccItem.setVisible(false);
                 companyManegeItem.setVisible(true);
             }
@@ -103,9 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     account = snapshot.getValue(Account.class);
 
                     de.hdodenhof.circleimageview.CircleImageView profileImageView = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
-                    TextView profile_name = navigationView.getHeaderView(0).findViewById(R.id.profile_name);
-                    TextView profile_email = navigationView.getHeaderView(0).findViewById(R.id.profile_email);
-                    TextView tv_count_coin = navigationView.getHeaderView(0).findViewById(R.id.tv_count_coin);
+
 
                     profile_name.setText(account.getName().toString());
                     profile_email.setText(account.getEmail().toString());
@@ -128,17 +147,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
-        TextView btn_nap_coin = navigationView.getHeaderView(0).findViewById(R.id.btn_nap_coin);
-        btn_nap_coin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-
-
-        mSearchView.attachNavigationDrawerToMenuButton(drawer);
     }
 
     @Override
@@ -149,13 +157,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intentProfile);
                 break;
             case R.id.nav_make_cv:
-                Toast.makeText(this, R.string.make_cv, Toast.LENGTH_SHORT).show();
+                Intent intentMakeCV = new Intent(MainActivity.this, MakeCV.class);
+                startActivity(intentMakeCV);
                 break;
             case R.id.nav_unlock_acc:
-                Toast.makeText(this, R.string.unlock_acc, Toast.LENGTH_SHORT).show();
+                showBottomSheet();
                 break;
             case R.id.nav_company_manege:
-                Toast.makeText(this, R.string.company_manege, Toast.LENGTH_SHORT).show();
+                setUpManageCompany();
                 break;
             case R.id.nav_change_pass:
                 Toast.makeText(this, R.string.change_pass, Toast.LENGTH_SHORT).show();
@@ -178,6 +187,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    private void setUpManageCompany(){
+        AccountHelper.checkIsManageCompany(new AccountHelper.OnIsManageCompanyCheckListener() {
+            @Override
+            public void onIsManageCompanyCheck(boolean isManageCompany) {
+                if(isManageCompany){
+                    Intent intent = new Intent();
+                    startActivity(intent);
+                }
+                else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Bạn chưa từng tạo công ty ?")
+                            .setMessage("Bạn chưa tạo công ty, bạn có muốn tạo công ty ngay bây giờ ?")
+                            .setPositiveButton("Tạo", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(MainActivity.this, CreateCompany.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .show();
+                }
+            }
+        });
+    }
+
+    private void showBottomSheet() {
+        BottomUnlockAccountFragment bottomUnlockAccountFragment = new BottomUnlockAccountFragment();
+        bottomUnlockAccountFragment.show(getSupportFragmentManager(), bottomUnlockAccountFragment.getTag());
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -189,6 +234,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     private void bind(){
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        menu = navigationView.getMenu();
+        unLockAccItem = menu.findItem(R.id.nav_unlock_acc);
+        companyManegeItem = menu.findItem(R.id.nav_company_manege);
+
+        profile_name = navigationView.getHeaderView(0).findViewById(R.id.profile_name);
+        profile_email = navigationView.getHeaderView(0).findViewById(R.id.profile_email);
+        tv_count_coin = navigationView.getHeaderView(0).findViewById(R.id.tv_count_coin);
+        btn_nap_coin = navigationView.getHeaderView(0).findViewById(R.id.btn_nap_coin);
     }
 
     private void setupBottomNavigationView() {
@@ -225,6 +283,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
             };
 
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initDataView();
+    }
 }

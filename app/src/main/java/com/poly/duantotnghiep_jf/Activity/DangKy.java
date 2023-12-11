@@ -22,7 +22,7 @@ import com.poly.duantotnghiep_jf.Model.Account;
 import com.poly.duantotnghiep_jf.R;
 
 public class DangKy extends AppCompatActivity {
-    private FirebaseAuth mAuth;///////////////////////////////
+    private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     TextInputEditText edtName, edtHo, edtPhone, edtEmail, edtPass;
     TextView btnDangKy;

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.poly.duantotnghiep_jf.R;
 
 public class ChinhSachBaoMat extends AppCompatActivity {
-///////////
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

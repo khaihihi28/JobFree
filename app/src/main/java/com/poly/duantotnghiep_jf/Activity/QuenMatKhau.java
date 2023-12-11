@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.poly.duantotnghiep_jf.R;
-///////////////////////////////
+
 public class QuenMatKhau extends AppCompatActivity {
 
     @Override

@@ -13,7 +13,7 @@ public class Account {
     private String timeWork;
     private String trinhDo;
     private boolean manegeCompany;
-    private int coin;
+    private long coin;
 
     public Account() {
     }
@@ -34,11 +34,11 @@ public class Account {
         coin = 0;
     }
 
-    public int getCoin() {
+    public long getCoin() {
         return coin;
     }
 
-    public void setCoin(int coin) {
+    public void setCoin(long coin) {
         this.coin = coin;
     }
 
