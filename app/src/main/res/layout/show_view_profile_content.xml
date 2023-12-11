@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_name_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Công ty TNHH một thành viên"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                />
+            <RelativeLayout
+                android:id="@+id/ll_luong"
+                android:layout_below="@+id/tv_name_company"
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:id="@+id/tv_count_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300K"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_marginLeft="4dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/title_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="lượt theo dõi"
+                    android:layout_toRightOf="@+id/tv_count_follow"
+                    android:textSize="14sp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ll_gioiThieu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_luong"
+                android:layout_marginTop="8dp"
+                >
+                <TextView
+                    android:id="@+id/tv_gioiThieu_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:padding="4dp"
+                    android:textColor="@color/black"
+                    android:text="Công ty chuyên kinh doanh bất động sản"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            >
+            <TextView
+                android:id="@+id/btn_follow"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bovien_button_cam"
+                android:gravity="center"
+                android:text="Follow"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:layout_alignParentLeft="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+            <View
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bovien_white_gradient"
+                >
+                <ImageView
+                    android:id="@+id/btn_chat"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_chat"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:id="@+id/btn_view_info"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bovien_white_gradient"
+            android:gravity="center"
+            android:text="Xem thông tin"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/colorVeryLightGrey" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh sách bài đăng"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold|italic"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_list_post_of_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+
+</LinearLayout>

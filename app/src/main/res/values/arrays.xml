@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="chuyenNganh">
+        <item>Công nghệ thông tin</item>
+        <item>Maketing - Bán hàng</item>
+        <item>Y học - sức khỏe</item>
+        <item>Điện - Điện tử viễn thông</item>
+        <item>Điện - Điện tử - Tự đông hóa</item>
+        <item>Kiến trúc - Xây dựng</item>
+        <item>Điện Khí - Cơ khí</item>
+        <item>Đồ họa</item>
+        <item>Quản trị kinh doanh</item>
+        <item>Khoa học máy tính</item>
+        <item>Kỹ thuật điện tử</item>
+        <item>Y học và Dược học</item>
+        <item>Công nghệ thông tin</item>
+        <item>Công nghệ sinh học</item>
+        <item>Hội họa và Điêu khắc</item>
+        <item>Âm nhạc và Âm nhạc học</item>
+        <item>Diễn xuất và Nghệ thuật biểu diễn</item>
+        <item>Tài chính</item>
+        <item>Quản lý nguồn nhân lực</item>
+        <item>Tiếp thị và Quảng cáo</item>
+        <item>Giáo dục cơ bản</item>
+        <item>Giáo dục đặc biệt</item>
+        <item>Quản lý giáo dục</item>
+        <item>Bác sĩ</item>
+        <item>Y sĩ</item>
+        <item>Y học nghiên cứu</item>
+        <item>Quản lý dịch vụ y tế</item>
+        <item>Tâm lý học</item>
+        <item>Khoa học chính trị</item>
+        <item>Xã hội học</item>
+        <item>Lịch sử</item>
+        <item>Hóa học</item>
+        <item>Vật lý</item>
+        <item>Sinh học</item>
+        <item>Toán học</item>
+        <item>Kỹ thuật điện</item>
+        <item>Kỹ thuật cơ khí</item>
+        <item>Kỹ thuật môi trường</item>
+        <item>Kỹ thuật hạ tầng</item>
+        <item>Ngôn ngữ học</item>
+        <item>Văn hóa học</item>
+        <item>Văn hóa sáng tạo</item>
+        <item>Quản lý môi trường</item>
+        <item>Khoa học môi trường</item>
+        <item>Quản lý tài nguyên</item>
+        <item>Quan hệ quốc tế</item>
+        <item>Quản lý công cộng</item>
+        <item>Chính trị học</item>
+        <item>Tâm lý học cơ bản</item>
+        <item>Tâm lý học tổ chức</item>
+        <item>Tâm lý giáo dục</item>
+        <item>Luật dân sự</item>
+        <item>Luật hình sự</item>
+        <item>Luật kinh doanh</item>
+        <item>Nông nghiệp sinh học</item>
+        <item>Quản lý nông nghiệp</item>
+        <item>Nông nghiệp bền vững</item>
+        <item>Quản lý du lịch</item>
+        <item>Quản lý nhà hàng</item>
+        <item>Quản lý sự kiện</item>
+    </string-array>
+    <string-array name="kinhNghiem">
+        <item>Trưởng Phòng</item>
+        <item>1 năm làm việc</item>
+        <item>Dưới 1 năm làm việc</item>
+        <item>Trên 1 năm làm việc</item>
+        <item>2 năm làm việc</item>
+        <item>Trên 2 năm làm việc</item>
+        <item>3 năm làm việc</item>
+        <item>Trên 3 năm làm việc</item>
+        <item>Giám đốc</item>
+        <item>Quản lý điều hành</item>
+        <item>CEO</item>
+    </string-array>
+    <string-array name="trinhDo">
+        <item>Trung học</item>
+        <item>Cao đẳng</item>
+        <item>Đại học</item>
+        <item>Sau đại học</item>
+        <item>Chứng chỉ và Bằng Cấp Nghề nghiệp</item>
+        <item>Học nghề và Đào tạo Y tế</item>
+        <item>Đào tạo Nghề nghiệp và Chứng chỉ Công nghệ</item>
+        <item>Đào tạo Liên kết và Chứng chỉ</item>
+        <item>Chứng chỉ Ngôn ngữ và Kỹ năng Mềm</item>
+        <item>Bằng Cấp Quốc tế </item>
+    </string-array>
+    <string-array name="timeWork">
+        <item>1 năm</item>
+        <item>2 năm</item>
+        <item>3 năm</item>
+        <item>4 năm</item>
+        <item>5 năm</item>
+        <item>6 năm</item>
+        <item>7 năm</item>
+        <item>8 năm</item>
+        <item>9 năm</item>
+        <item>10 năm</item>
+    </string-array>
+    <string-array name="luong">
+        <item>Dưới 1000$</item>
+        <item>Trên 1000$</item>
+        <item>1000$</item>
+        <item>Trên 2000$</item>
+        <item>2000$</item>
+        <item>Trên 3000$</item>
+        <item>3000$</item>
+    </string-array>
+</resources>
