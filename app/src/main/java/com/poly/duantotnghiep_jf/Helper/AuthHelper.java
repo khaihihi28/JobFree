@@ -1,5 +1,6 @@
 package com.poly.duantotnghiep_jf.Helper;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +45,7 @@ public class AuthHelper {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
                             String uid = user.getUid();
-                            Account account = new Account("R.drawable.profile_img_default", email, name, ho, phone, true);
+                            Account account = new Account("R.drawable.profile_img_default", email, name,  phone, true);
                             mDatabase.child(uid).setValue(account);
                             listener.onRegistrationSuccess(uid);
                         } else {

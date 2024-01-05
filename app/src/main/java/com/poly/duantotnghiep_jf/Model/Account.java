@@ -1,10 +1,11 @@
 package com.poly.duantotnghiep_jf.Model;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private String avatar;
     private String email;
     private String name;
-    private String ho;
     private String phone;
     private boolean isNewAccount;
     private String chuyenNganh;
@@ -14,17 +15,18 @@ public class Account {
     private String trinhDo;
     private boolean manegeCompany;
     private long coin;
+    private boolean rule;
 
     public Account() {
     }
 
-    public Account(String avatar, String email, String name, String ho, String phone, boolean isNewAccount) {
+    public Account(String avatar, String email, String name, String phone, boolean isNewAccount) {
         this.avatar = avatar;
         this.email = email;
         this.name = name;
-        this.ho = ho;
         this.phone = phone;
         this.isNewAccount = isNewAccount;
+        rule = false;
         chuyenNganh = "";
         kinhNghiem = "";
         luong = "";
@@ -114,13 +116,6 @@ public class Account {
         this.name = name;
     }
 
-    public String getHo() {
-        return ho;
-    }
-
-    public void setHo(String ho) {
-        this.ho = ho;
-    }
 
     public String getPhone() {
         return phone;

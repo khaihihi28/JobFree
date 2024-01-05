@@ -1,67 +1,148 @@
 package com.poly.duantotnghiep_jf.Activity;
 
-import static android.content.ContentValues.TAG;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
+import com.firebase.ui.auth.IdpResponse;
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.poly.duantotnghiep_jf.MainActivity;
+import com.poly.duantotnghiep_jf.Model.Account;
 import com.poly.duantotnghiep_jf.R;
+import com.poly.duantotnghiep_jf.Util.Alert;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class TaikhoanJob extends AppCompatActivity {
 
-    TextView btnDangKy,btnLoginBasic, btnwitGG, btnwithFace;
-
-    GoogleSignInOptions gso;
-    GoogleSignInClient gsc;
-
-    private CallbackManager manager;
-
-    private FirebaseAuth mAuth;
+    TextView btnDangKy, btnLoginBasic, btnwithGG, btnwithFace;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taikhoan_job);
-
-        mAuth = FirebaseAuth.getInstance();
-
         anhXa();
+        login();
+        loginWithGoogle();
+        loginWithFaceBook();
+        register();
+    }
 
+
+    private void loginWithFaceBook() {
+        btnwithFace.setOnClickListener(v -> {
+            startSignInFB();
+        });
+    }
+
+    private void loginWithGoogle() {
+        btnwithGG.setOnClickListener(v -> {
+            startSignInGG();
+        });
+    }
+
+    private void startSignInGG() {
+        List<AuthUI.IdpConfig> providers = Collections.singletonList(
+                new AuthUI.IdpConfig.GoogleBuilder()
+                        .build()
+        );
+        AuthUI authUI = AuthUI.getInstance();
+        Intent signInIntent = authUI
+                .createSignInIntentBuilder()
+                .setIsSmartLockEnabled(false, true)
+                .setAvailableProviders(providers)
+                .setTosAndPrivacyPolicyUrls(
+                        "https://superapp.example.com/terms-of-service.html",
+                        "https://superapp.example.com/privacy-policy.html"
+                )
+                .build();
+        signInLauncher.launch(signInIntent);
+    }
+
+    private void startSignInFB() {
+        List<AuthUI.IdpConfig> providers = Collections.singletonList(
+                new AuthUI.IdpConfig.FacebookBuilder().build()
+        );
+        AuthUI authUI = AuthUI.getInstance();
+        Intent signInIntent = authUI
+                .createSignInIntentBuilder()
+                .setIsSmartLockEnabled(false, true)
+                .setAvailableProviders(providers)
+                .setTosAndPrivacyPolicyUrls(
+                        "https://superapp.example.com/terms-of-service.html",
+                        "https://superapp.example.com/privacy-policy.html"
+                )
+                .build();
+        signInLauncher.launch(signInIntent);
+    }
+
+
+    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+            new FirebaseAuthUIActivityResultContract(),
+            this::onSignInResult
+    );
+
+    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
+        if (result.getResultCode() == RESULT_OK) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user == null) {
+                Alert.showSnackbarMessage(btnwithGG, "Đăng nhập thất bại 1");
+                return;
+            }
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("Account").child(user.getUid());
+            myRef.get().addOnCompleteListener(task -> {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                    Alert.showSnackbarMessage(btnwithGG, "Kiểm tra kết nối mạng");
+                    return;
+                }
+                if (task.getResult().getValue() == null) {
+                    Account account = new Account(Objects.requireNonNull(user.getPhotoUrl()).toString(), user.getEmail(), user.getDisplayName(), user.getPhoneNumber(), true);
+                    myRef.setValue(account);
+                    Intent intent = new Intent(TaikhoanJob.this, ThuThapThongTin.class);
+                    startActivity(intent);
+
+
+                } else {
+                    if (Objects.requireNonNull(task.getResult().getValue(Account.class)).isNewAccount()) {
+                        Intent intent = new Intent(TaikhoanJob.this, ThuThapThongTin.class);
+                        startActivity(intent);
+                        return;
+                    }
+                    Alert.showSnackbarMessage(btnwithGG, "Đăng nhập thành công");
+                    Intent intent = new Intent(TaikhoanJob.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+
+            });
+        } else {
+            Alert.showSnackbarMessage(btnwithGG, "Đăng nhập thất bại 0");
+        }
+    }
+
+
+    private void login() {
         btnLoginBasic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +150,9 @@ public class TaikhoanJob extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    private void register() {
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,22 +161,18 @@ public class TaikhoanJob extends AppCompatActivity {
             }
         });
     }
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser != null){
-//            Intent intent = new Intent(TaikhoanJob.this, MainActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//    }
-    private void anhXa(){
+
+    private void anhXa() {
         btnDangKy = findViewById(R.id.btn_dangky);
         btnLoginBasic = findViewById(R.id.btn_login_basic);
-        btnwitGG = findViewById(R.id.btn_login_withGG);
+        btnwithGG = findViewById(R.id.btn_login_withGG);
         btnwithFace = findViewById(R.id.btn_login_withFB);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(getApplicationContext(), GoogleSignInOptions.DEFAULT_SIGN_IN);
+        googleSignInClient.signOut();
+    }
 }

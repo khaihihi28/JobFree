@@ -19,4 +19,7 @@
     <string name="unlock_message_show_more">- Mục đích của khoản tiền yêu cầu này để đề phòng các hành vi lừa đảo, tiêu cực đồng thời sẽ là kinh phí giúp đội ngũ kĩ thuật phát triển các tính năng mới trong tương lai. Mong muốn mang lại cho bạn một trải nghiệm ứng dụng tốt nhất </string>
     <string name="chuc_nang_unlock">- Khi mở tài khoản danh nghiệp bạn có thể tạo ra trang doanh nghiệp của mình nhằm mục đích cho nhiều người biết tới, quan trọng hơn bạn có thể đăng bài tuyển dụng để có thể tuyển được nhân viên theo yêu cầu, mong muốn của chính bạn, bạn có thể xem danh sách các ứng viên đã ứng tuyển vào công việc đó từ đó đưa ra quyết định, thêm vào đó sẽ còn nhiều chức năng khác chờ bạn khám phá.</string>
 
+    <string name="facebook_application_id" translatable="false">1531975134011273</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb1531975134011273</string>
+    <string name="facebook_client_token" translatable="false">1531975134011273|_iBKe95THrfl8vXCSUf0SM1cF4E</string>
 </resources>

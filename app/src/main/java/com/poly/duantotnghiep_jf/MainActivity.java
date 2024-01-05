@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.poly.duantotnghiep_jf.Activity.CreateCompany;
 import com.poly.duantotnghiep_jf.Activity.MakeCV;
+import com.poly.duantotnghiep_jf.Activity.ManHinhChao;
 import com.poly.duantotnghiep_jf.Activity.ProfileUser;
 import com.poly.duantotnghiep_jf.Activity.TaikhoanJob;
 import com.poly.duantotnghiep_jf.Adapter.ViewPagerAdapter;
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MenuItem companyManegeItem;
     TextView profile_name,profile_email,tv_count_coin,btn_nap_coin;
     Menu menu;
+     FloatingSearchView mSearchView;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -65,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setupBottomNavigationView();
         showInitialFragment();
 
-        final FloatingSearchView mSearchView = findViewById(R.id.search_view);
+        mSearchView = findViewById(R.id.search_view);
+        mSearchView.setVisibility(View.VISIBLE);
 
         mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
             @Override
@@ -126,8 +130,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     de.hdodenhof.circleimageview.CircleImageView profileImageView = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
 
 
-                    profile_name.setText(account.getName().toString());
-                    profile_email.setText(account.getEmail().toString());
+                    profile_name.setText(account.getName());
+                    profile_email.setText(account.getEmail());
                     tv_count_coin.setText(String.valueOf(account.getCoin()));
                     if(account.getAvatar().equals("R.drawable.profile_img_default")){
                         Glide.with(getBaseContext())
@@ -149,11 +153,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_profile:
                 Intent intentProfile = new Intent(MainActivity.this, ProfileUser.class);
+               intentProfile.putExtra("account",account);
                 startActivity(intentProfile);
                 break;
             case R.id.nav_make_cv:
@@ -171,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_logout:
                 AuthHelper.signOutHelper();
-                Intent intent = new Intent(MainActivity.this, TaikhoanJob.class);
+                Intent intent = new Intent(MainActivity.this, ManHinhChao.class);
                 startActivity(intent);
                 finish();
                 Toast.makeText(this, R.string.logout, Toast.LENGTH_SHORT).show();
@@ -264,15 +270,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 switch (item.getItemId()) {
                     case R.id.bnav_home:
                         selectedFragment = new HomeFragment();
+                        mSearchView.setVisibility(View.VISIBLE);
                         break;
                     case R.id.bnav_yeuThich:
                         selectedFragment = new YeuThichFragment();
+                        mSearchView.setVisibility(View.GONE);
                         break;
                     case R.id.bnav_khamPha:
                         selectedFragment = new KhamPhaFragment();
+                        mSearchView.setVisibility(View.GONE);
                         break;
                     case R.id.bnav_menu:
                         selectedFragment = new MenuFragment();
+                        mSearchView.setVisibility(View.GONE);
                         break;
                 }
 
