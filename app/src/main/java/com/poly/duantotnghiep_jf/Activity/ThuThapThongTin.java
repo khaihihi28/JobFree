@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.poly.duantotnghiep_jf.MainActivity;
@@ -109,5 +110,12 @@ public class ThuThapThongTin extends AppCompatActivity {
         actv_timeWork = findViewById(R.id.actv_timeWork);
         actv_luong = findViewById(R.id.actv_luong);
         tv_btn_nextThuThap = findViewById(R.id.tv_btn_nextThuThap);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FirebaseAuth.getInstance().signOut();
     }
 }

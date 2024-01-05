@@ -33,6 +33,7 @@ public class MenuFragment extends Fragment {
                 AuthHelper.signOutHelper();
                 Intent intent = new Intent(getActivity(), TaikhoanJob.class);
                 startActivity(intent);
+
             }
         });
 

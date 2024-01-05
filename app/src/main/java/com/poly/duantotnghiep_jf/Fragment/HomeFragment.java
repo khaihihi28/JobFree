@@ -33,6 +33,7 @@ import com.poly.duantotnghiep_jf.Helper.CompanyHelper;
 import com.poly.duantotnghiep_jf.Helper.FireBaseHelper;
 import com.poly.duantotnghiep_jf.Helper.PostHelper;
 import com.poly.duantotnghiep_jf.Interface.ItemClickListener;
+import com.poly.duantotnghiep_jf.MainActivity;
 import com.poly.duantotnghiep_jf.Model.CombinedData;
 import com.poly.duantotnghiep_jf.Model.Company;
 import com.poly.duantotnghiep_jf.Model.Post;
@@ -98,7 +99,6 @@ public class HomeFragment extends Fragment {
         recyclerView_ViecGoiY.setHasFixedSize(true);
         layoutManager_ViecGoiY = new GridLayoutManager(getContext(), 3, GridLayoutManager.HORIZONTAL, false);
         recyclerView_ViecGoiY.setLayoutManager(layoutManager_ViecGoiY);
-
         setupSlider();
         loadPost();
 //        setListIdCompany();
@@ -106,6 +106,7 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
 
     private void loadPost(){
         FirebaseRecyclerOptions<Post> options =

@@ -152,70 +152,97 @@
                         android:textSize="12sp" />
                 </RelativeLayout>
             </LinearLayout>
-            <RelativeLayout
-                android:id="@+id/ll_gioiThieu"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:paddingHorizontal="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-                <TextView
-                    android:id="@+id/tv_ChucVu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:padding="4dp"
-                    android:textColor="@color/black"
-                    android:text="Thêm chức danh"
-                    />
-                <TextView
-                    android:layout_below="@+id/tv_ChucVu"
-                    android:id="@+id/tv_kinhNghiem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:padding="4dp"
-                    android:textColor="@color/black"
-                    android:text="Thêm số năm kinh nghiệm"
-                    />
+
+
                 <LinearLayout
-                    android:id="@+id/ll_Email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:layout_below="@+id/tv_kinhNghiem"
                     android:orientation="horizontal"
                     >
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_email"
+                        android:src="@drawable/badge"
                         />
                     <TextView
-                        android:id="@+id/tv_email_profile_user"
+                        android:layout_marginStart="12dp"
+                        android:id="@+id/tv_ChucVu"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:text="Thêm chức danh"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/briefcase"
+                        />
+                    <TextView
+                        android:layout_marginStart="12dp"
+                        android:id="@+id/tv_kinhNghiem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:text="Thêm số năm kinh nghiệm"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/gmail"
+                        />
+                    <TextView
+                        android:layout_marginStart="12dp"
+                        android:id="@+id/tv_email_profile_user"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textSize="12sp"
                         android:padding="4dp"
-                        android:textColor="@color/purple_700"
+                        android:textColor="@color/black"
                         android:text="Khaihihi28@gmail.com"
                         />
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/ll_bangCap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:layout_below="@+id/ll_Email"
                     android:orientation="horizontal"
                     >
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_school"
+                        android:src="@drawable/university"
                         />
                     <TextView
+                        android:layout_marginStart="12dp"
                         android:id="@+id/tv_bangCap_profile"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textSize="12sp"
@@ -224,13 +251,14 @@
                         android:text="Thêm bằng cấp"
                         />
                 </LinearLayout>
-            </RelativeLayout>
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="2dp"
                 android:background="@color/black" />
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/ln_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
@@ -244,11 +272,9 @@
                     android:src="@drawable/ic_edit"
                     />
                 <TextView
-                    android:layout_toRightOf="@+id/img_edit_profile_user"
                     android:id="@+id/btn_edit_profile_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:textSize="14sp"
                     android:padding="4dp"
                     android:textStyle="bold"
@@ -256,192 +282,11 @@
                     android:text="Chỉnh sửa thông tin hồ sơ"
                     />
 
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thông tin cá nhân"
-        android:layout_marginLeft="8dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/black"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@drawable/bovien_white_gradient"
-            android:padding="8dp"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-            <RelativeLayout
-                android:id="@+id/ll_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
-                <LinearLayout
-                    android:id="@+id/ll_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_location"
-                        />
-                    <TextView
-                        android:id="@+id/tv_address_profile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="12sp"
-                        android:padding="4dp"
-                        android:textColor="@color/black"
-                        android:text="Thêm địa chỉ"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/ll_address"
-                    android:orientation="horizontal"
-                    >
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_phone"
-                        />
-                    <TextView
-                        android:id="@+id/tv_phone_profile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="12sp"
-                        android:padding="4dp"
-                        android:textColor="@color/black"
-                        android:text="Thêm số điện thoại"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_honNhan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/ll_phone"
-                    android:orientation="horizontal"
-                    >
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/add_to_list"
-                        />
-                    <TextView
-                        android:id="@+id/tv_tinhTrangHonNhan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="12sp"
-                        android:padding="4dp"
-                        android:textColor="@color/black"
-                        android:text="Thêm tình trạng hôn nhân"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_gioiTinh"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/ll_honNhan"
-                    android:orientation="horizontal"
-                    >
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_gioitinh"
-                        />
-                    <TextView
-                        android:id="@+id/tv_gioiTinh_profile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="12sp"
-                        android:padding="4dp"
-                        android:textColor="@color/black"
-                        android:text="Thêm giới tính"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_birth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/ll_gioiTinh"
-                    android:orientation="horizontal"
-                    >
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_date"
-                        />
-                    <TextView
-                        android:id="@+id/tv_birth_prifle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="12sp"
-                        android:padding="4dp"
-                        android:textColor="@color/black"
-                        android:text="Thêm ngày sinh"
-                        />
-                </LinearLayout>
-            </RelativeLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="2dp"
-                android:background="@color/black" />
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:gravity="center"
-                >
-
-                <ImageView
-                    android:id="@+id/img_edit_info_profile"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_edit"
-                    />
-                <TextView
-                    android:layout_toRightOf="@+id/img_edit_info_profile"
-                    android:id="@+id/btn_edit_info_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="14sp"
-                    android:padding="4dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:text="Chỉnh sửa"
-                    />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-    </LinearLayout>
 
 
 </LinearLayout>

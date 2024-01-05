@@ -33,7 +33,7 @@ public class FireBaseHelper {
     //get uid user(id)
     public static String getCurrentUserUid() {
         FirebaseUser currentUser = getCurrentUser();
-        return currentUser != null ? currentUser.getUid() : null;
+        return currentUser != null ? currentUser.getUid() : "";
     }
 
     //check newAccoutn
