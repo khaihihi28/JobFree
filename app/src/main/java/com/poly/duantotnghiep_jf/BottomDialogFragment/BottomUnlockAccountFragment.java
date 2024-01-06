@@ -7,9 +7,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,24 +30,79 @@ import com.poly.duantotnghiep_jf.Helper.FireBaseHelper;
 import com.poly.duantotnghiep_jf.Helper.OrderJCoinHelper;
 import com.poly.duantotnghiep_jf.MainActivity;
 import com.poly.duantotnghiep_jf.R;
+import com.squareup.picasso.Picasso;
 
 public class BottomUnlockAccountFragment extends BottomSheetDialogFragment {
     TextView tv_showMore,unlock_message,tv_have_coin, tv_erro_unlock_by_jcoin, btn_unlick_by_jcoin, btn_pay_zalopay,btn_pay_momo, btn_X;
-
+    Spinner caidatban1;
+    ImageView imageView;
     private boolean isExpanded = false;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bottom_unlock_account, container, false);
-
+        caidatban1 = (Spinner) view.findViewById(R.id.caidatbanspinner);
         unlock_message = view.findViewById(R.id.unlock_message);
-        tv_showMore = view.findViewById(R.id.tv_showMore);
-        tv_have_coin = view.findViewById(R.id.tv_have_coin);
+
         tv_erro_unlock_by_jcoin = view.findViewById(R.id.tv_erro_unlock_by_jcoin);
-        btn_unlick_by_jcoin = view.findViewById(R.id.btn_unlick_by_jcoin);
-        btn_pay_zalopay = view.findViewById(R.id.btn_pay_zalopay);
-        btn_pay_momo = view.findViewById(R.id.btn_pay_momo);
+        btn_unlick_by_jcoin = view.findViewById(R.id.bn_unlick_by_jcoin);
+        imageView = view.findViewById(R.id.imageView);
         btn_X = view.findViewById(R.id.btn_X);
+
+
+
+
+
+        // Định nghĩa mảng giá trị cho Spinner
+        String[] items = {"", "1 Tháng", "3 Tháng","6 Tháng"};
+
+// Tạo ArrayAdapter để kết nối mảng giá trị với Spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, items);
+
+// Thiết lập giao diện cho danh sách thả xuống
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+// Đặt ArrayAdapter cho Spinner
+        caidatban1.setAdapter(adapter);
+
+        caidatban1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id1) {
+                // Xử lý khi một mục được chọn
+                String selectedValue = items[position];
+
+                if (selectedValue == "") {
+
+
+                } else if (selectedValue == "1 Tháng") {
+                    int tien = 80000;
+
+                    String imageUrl = "https://api.vietqr.io/image/970422-999993092003-mpJvWLi.jpg?accountName=NGUYEN%20HUU%20THINH&amount="+tien+"&addInfo=Thanh%20toan%201 thang";
+                    Picasso.get().load(imageUrl).into(imageView);
+                }else if (selectedValue == "3 Tháng") {
+                    int tien = 150000;
+
+                    String imageUrl = "https://api.vietqr.io/image/970422-999993092003-mpJvWLi.jpg?accountName=NGUYEN%20HUU%20THINH&amount="+tien+"&addInfo=Thanh%20toan%203 thang";
+                    Picasso.get().load(imageUrl).into(imageView);
+
+                } else if (selectedValue == "6 Tháng") {
+                    int tien = 220000;
+
+                    String imageUrl = "https://api.vietqr.io/image/970422-999993092003-mpJvWLi.jpg?accountName=NGUYEN%20HUU%20THINH&amount="+tien+"&addInfo=Thanh%20toan%206 thang";
+                    Picasso.get().load(imageUrl).into(imageView);
+
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Xử lý khi không có mục nào được chọn
+            }
+        });
+
         int screenHeight = getResources().getDisplayMetrics().heightPixels;
 
         // Tính toán chiều cao cần đặt (90% của màn hình)
@@ -69,25 +129,7 @@ public class BottomUnlockAccountFragment extends BottomSheetDialogFragment {
 
 
 
-        tv_showMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String unlock_message_text = getResources().getString(R.string.unlock_message);
-                String unlock_message_text_showMore = getResources().getString(R.string.unlock_message_show_more);
-                String chuc_nang_unlock = getResources().getString(R.string.chuc_nang_unlock);
-                if (isExpanded) {
-                    // Đang mở rộng, thu gọn
-                    unlock_message.setText(unlock_message_text + "...");
-                    tv_showMore.setText("Xem thêm");
-                } else {
-                    // Đang thu gọn, mở rộng
-                    unlock_message.setText(unlock_message_text + "\n" + unlock_message_text_showMore + "\n" + chuc_nang_unlock);
-                    tv_showMore.setText("Ẩn");
-                }
 
-                isExpanded = !isExpanded;
-            }
-        });
 
         btn_X.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,5 +204,6 @@ public class BottomUnlockAccountFragment extends BottomSheetDialogFragment {
 
             }
         });
+
     }
 }
