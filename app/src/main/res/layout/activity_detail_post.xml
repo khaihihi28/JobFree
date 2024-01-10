@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_Title_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data Engineer - Salary Up to $3000"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                />
+            <RelativeLayout
+                android:id="@+id/ll_luong"
+                android:layout_below="@+id/tv_Title_post"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:id="@+id/title_luong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lương: "
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    />
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tv_luong_port"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lên đến 3000$"
+                    android:textColor="@color/orange"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/title_luong"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ll_timeWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_luong"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_light_gray"
+                >
+                <TextView
+                    android:id="@+id/tv_timeWork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:padding="4dp"
+                    android:text="Toàn thời gian"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ll_address"
+                android:layout_below="@+id/ll_timeWord"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:id="@+id/title_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Làm việc tại: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    />
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tv_address_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hà Nội"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/title_address"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/title_timePost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày đăng: "
+                android:textSize="10sp"
+                android:textStyle="italic"
+                />
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/tv_timePost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21/10/2023"
+                android:textStyle="italic"
+                android:layout_toRightOf="@+id/title_timePost"
+                android:textSize="10sp"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            >
+            <TextView
+                android:id="@+id/btn_UngTuyen"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bovien_button_cam"
+                android:gravity="center"
+                android:text="Ứng tuyển"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:layout_alignParentLeft="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+            <View
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+            <RelativeLayout
+
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_toRightOf="@id/btn_UngTuyen"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bovien_white_gradient"
+                >
+                <ImageView
+                    android:id="@+id/btnAddToList"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/to_add_list"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_avatar_company"
+                android:background="@drawable/bovien_white_gradient"
+                android:padding="8dp"
+                >
+                <ImageView
+                    android:id="@+id/iv_company_avatar"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/avatar_company_default" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_post_details"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_company_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CT TNHH JobFree"
+                    android:textColor="@color/color_main_app"
+                    android:textStyle="bold|italic"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_count_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:paddingStart="2dp"
+                    android:paddingTop="1dp"
+                    android:paddingEnd="2dp"
+                    android:paddingBottom="1dp"
+                    android:text="10 bài tuyển dụng"
+                    android:textColor="#616161"
+                    android:textSize="10sp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/btnFollowCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:gravity="center"
+                android:background="@drawable/bovien_button_cam"
+                android:text="Follow"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorVeryLightGrey" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="65dp"
+                android:layout_height="85dp"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp">
+
+                    <TextView
+                        android:id="@+id/tv_count_soLuong"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:background="@drawable/bg_circle_border"
+                        android:gravity="center"
+                        android:text="10/12"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/bg_item_count"
+                        android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:text="Người"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="Ứng tuyển"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="65dp"
+                android:layout_height="85dp"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp">
+
+                    <TextView
+                        android:id="@+id/tv_viewCount"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:background="@drawable/bg_octagon"
+                        android:gravity="center"
+                        android:text="1000"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="Lượt xem"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="65dp"
+                android:layout_height="85dp"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp">
+
+                    <TextView
+                        android:id="@+id/tv_likeCount"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:background="@drawable/bg_circle_border"
+                        android:gravity="center"
+                        android:text="1000"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/bg_item_count"
+                        android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:text="Người"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="Quan tâm"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="65dp"
+                android:layout_height="85dp"
+                android:visibility="invisible"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp">
+
+                    <ImageView
+                        android:id="@+id/tv_badge_similar"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:background="@drawable/bg_circle_solid"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:src="@drawable/ic_flag_white_24dp"
+                        android:textSize="24sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_app_similar_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="Similar"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/colorVeryLightGrey" />
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đãi ngộ"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textSize="14sp"
+            android:id="@+id/tv_daiNgo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Hỗ trợ ....... Tăng lương từ 1-2 năm làm việc .... Môi trường làm việc..."
+            />
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yêu cầu"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textSize="14sp"
+            android:id="@+id/tv_yeuCau"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:text="Tốt nghiệp đại học"
+            />
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mô tả công việc"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textSize="14sp"
+            android:id="@+id/tv_moTaCongViec"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:text="Làm việc full time, công việc lập trình app"
+            />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa điểm làm việc"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textSize="14sp"
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:text="Hà Nội, Việt Nam"
+            />
+
+    </LinearLayout>
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/rv_app_screenshots"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+    <!--    <include-->
+    <!--        layout="@layout/activity_app_ratings"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="20dp" />-->
+
+    <!--    <include-->
+    <!--        layout="@layout/activity_app_reviews"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="20dp" />-->
+
+</LinearLayout>
