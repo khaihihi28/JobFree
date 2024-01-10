@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/nen_main"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/logo_app" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="Sonbhph24050"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+         />
+
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sonbhph24050@fpt.edu.vn" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_count_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:text="0" />
+        <TextView
+            android:id="@+id/tv_title_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Coin"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/tv_count_coin"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/btn_nap_coin"
+            android:layout_width="wrap_content"
+            android:padding="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/bovien_button_cam"
+            android:layout_toRightOf="@+id/tv_title_coin"
+            android:text="Nạp coin"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="10sp"/>
+    </RelativeLayout>
+
+</LinearLayout>
